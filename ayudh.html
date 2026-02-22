@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Learn</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+  background:linear-gradient(-45deg,#667eea,#764ba2,#ff6a88,#ffb86c);
+  background-size:400% 400%;
+  animation:gradientBG 15s ease infinite;
+  color:white;
+  scroll-behavior:smooth;
+}
+@keyframes gradientBG{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;width:100%;top:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 50px;
+  background:rgba(0,0,0,.3);
+  backdrop-filter:blur(15px);
+  z-index:1000;
+}
+.logo{display:flex;align-items:center;font-size:24px;font-weight:700;}
+.logo img{width:40px;height:40px;margin-right:10px;border-radius:10px;}
+.logo span{color:#ffd369}
+nav ul{display:flex;list-style:none}
+nav ul li{margin:0 15px}
+nav a{color:white;text-decoration:none;font-weight:600}
+nav button{padding:8px 20px;border:none;border-radius:25px;background:#ffd369;color:black;cursor:pointer;font-weight:600;}
+
+/* HERO */
+.hero{
+  height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:0 20px;text-align:center;flex-direction:column;position:relative;
+}
+.hero h1{font-size:60px;margin-bottom:20px;}
+.hero p{font-size:20px;margin-bottom:30px;max-width:600px;}
+.hero img{margin-top:30px;width:80%;max-width:500px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.3);}
+.hero button{padding:15px 40px;border:none;border-radius:30px;background:#ffd369;color:black;font-weight:700;cursor:pointer;box-shadow:0 0 20px rgba(255,211,105,.7);transition:.3s;}
+.hero button:hover{transform:scale(1.05);}
+
+/* ABOUT US */
+.about{
+  padding:80px 50px;
+  background:rgba(255,255,255,0.15);
+  border-radius:20px;
+  margin:50px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+  color:white;
+}
+.about h2{font-size:48px;margin-bottom:30px;text-align:center;color:#ffd369;}
+.about h3{font-size:30px;margin:25px 0 10px;}
+.about p{font-size:18px;line-height:1.8;max-width:900px;margin:0 auto;text-align:justify;}
+
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;padding:80px 50px;
+}
+.feature-box{
+  background:rgba(255,255,255,.15);padding:30px;border-radius:20px;
+  text-align:center;backdrop-filter:blur(10px);transition:.4s;
+}
+.feature-box:hover{transform:translateY(-10px);}
+
+/* STATS */
+.stats{
+  display:flex;justify-content:space-around;padding:60px 20px;
+  background:rgba(0,0,0,.3);
+}
+.stat{text-align:center;}
+.stat h2{font-size:40px;color:#ffd369}
+
+/* COURSES */
+.courses{padding:80px 50px;}
+.course-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;margin-top:40px;
+}
+.card{
+  background:white;color:black;border-radius:20px;overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);transition:.4s;opacity:0;transform:translateY(40px);
+}
+.card.show{opacity:1;transform:translateY(0)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card div{padding:20px}
+.card button{margin-top:10px;padding:10px 20px;border:none;border-radius:20px;background:#667eea;color:white;cursor:pointer;}
+
+/* INSTRUCTORS */
+.instructors{
+  padding:80px 50px;background:rgba(255,255,255,0.1);border-radius:20px;margin:50px;
+}
+.instructor-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;margin-top:40px;
+}
+.instructor-card{
+  background:rgba(255,255,255,0.2);padding:20px;border-radius:20px;text-align:center;
+}
+.instructor-card img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:15px;}
+.instructor-card h3{color:#ffd369; margin-bottom:10px;}
+.instructor-card p{font-size:16px;line-height:1.5;}
+
+/* PRICING */
+.pricing{
+  padding:80px 50px;
+}
+.plan-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;margin-top:40px;
+}
+.plan-card{
+  background:rgba(255,255,255,0.2);padding:30px;border-radius:20px;text-align:center;
+  transition:.3s;
+}
+.plan-card:hover{transform:translateY(-10px);}
+.plan-card h3{color:#ffd369;margin-bottom:15px;}
+.plan-card p{line-height:1.6;margin-bottom:20px;}
+.plan-card button{padding:10px 20px;border:none;border-radius:20px;background:#667eea;color:white;cursor:pointer;}
+
+/* TESTIMONIALS */
+.testimonials{
+  padding:80px 50px;background:rgba(0,0,0,.3);
+}
+.test-box{
+  background:rgba(255,255,255,.2);padding:30px;border-radius:20px;margin-top:20px;
+}
+
+/* CONTACT */
+.contact{
+  padding:80px 50px;background:rgba(255,255,255,0.1);border-radius:20px;margin:50px;text-align:center;
+}
+.contact h2{color:#ffd369;margin-bottom:30px;}
+.contact form{display:flex;flex-direction:column;gap:20px;max-width:500px;margin:0 auto;}
+.contact input, .contact textarea{
+  padding:15px;border:none;border-radius:15px;
+}
+.contact button{
+  padding:15px;border:none;border-radius:25px;background:#667eea;color:white;cursor:pointer;
+}
+
+/* FOOTER */
+footer{text-align:center;padding:30px;background:rgba(0,0,0,.4);}
+
+/* AI */
+.ai-btn{
+  position:fixed;bottom:20px;right:20px;width:65px;height:65px;
+  border-radius:50%;background:#ffd369;color:black;
+  display:flex;justify-content:center;align-items:center;font-size:28px;cursor:pointer;
+}
+.ai-box{
+  position:fixed;bottom:100px;right:20px;width:330px;height:420px;
+  background:white;color:black;border-radius:20px;display:none;
+  flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+.ai-header{background:#667eea;color:white;padding:10px;text-align:center;border-radius:20px 20px 0 0;}
+.ai-messages{flex:1;padding:10px;overflow-y:auto;}
+.ai-input{display:flex;}
+.ai-input input{flex:1;padding:10px;border:none;}
+.ai-input button{background:#667eea;color:white;border:none;padding:10px;}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<div class="logo">
+<img src="logo.jpeg" alt="EasyLearn Logo">
+<span>EasyLearn</span>
+</div>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#courses">Courses</a></li>
+<li><a href="#instructors">Instructors</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#testimonials">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button>Login</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Learn Smarter, Learn Faster</h1>
+<p>Join thousands of students upgrading skills in Web, Python, AI, and Design with EasyLearn.</p>
+<img src="bababa.jpeg" alt="Learning Banner">
+<button>Start Learning</button>
+</section>
+
+<!-- ABOUT US -->
+<section class="about" id="about">
+<h2>About Us</h2>
+<h3>Our Mission</h3>
+<p>At EasyLearn, we believe that education should be accessible, engaging, and effective for everyone. Our mission is to empower learners to achieve their dreams and unlock their potential through high-quality online courses and personalized guidance.</p>
+<h3>What We Offer</h3>
+<p>We provide courses in Web Development, Python, AI, Machine Learning, Design, and more. Every course is created by industry experts and includes hands-on projects, quizzes, and AI-assisted support to ensure practical learning.</p>
+<h3>Community & Growth</h3>
+<p>We encourage collaboration, community projects, and peer feedback to make learning interactive and enjoyable. EasyLearn supports students at every step, celebrating achievements and fostering a mindset of continuous growth.</p>
+<h3>Vision</h3>
+<p>We aim to be a global platform for learners of all ages, providing tools, resources, and mentorship that prepares students for future careers in technology, creativity, and innovation.</p>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+<div class="feature-box">
+<h3>🚀 Fast Learning</h3>
+<p>Quick lessons with progress tracking for all courses.</p>
+</div>
+<div class="feature-box">
+<h3>🤖 AI Assistant</h3>
+<p>Ask questions anytime with built-in AI assistant.</p>
+</div>
+<div class="feature-box">
+<h3>📜 Certification</h3>
+<p>Earn certificates after completing courses.</p>
+</div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+<div class="stat"><h2>10K+</h2><p>Students</p></div>
+<div class="stat"><h2>120+</h2><p>Courses</p></div>
+<div class="stat"><h2>95%</h2><p>Success Rate</p></div>
+</section>
+
+<!-- COURSES -->
+<section class="courses" id="courses">
+<h2>Popular Courses</h2>
+<div class="course-grid">
+<div class="card"><img src="web.jpeg"><div><h3>Web Development</h3><p>HTML, CSS, JS Full Course</p><button>Enroll</button></div></div>
+<div class="card"><img src="python.jpeg"><div><h3>Python Programming</h3><p>Beginner to Advanced</p><button>Enroll</button></div></div>
+<div class="card"><img src="ai.jpeg"><div><h3>AI & Machine Learning</h3><p>Future Ready Skills</p><button>Enroll</button></div></div>
+</div>
+</section>
+
+<!-- INSTRUCTORS -->
+<section class="instructors" id="instructors">
+<h2>Meet Our Instructors</h2>
+<div class="instructor-grid">
+<div class="instructor-card"><img src="ab.jpg"><h3>John Doe</h3><p>Expert in Web Development with 10+ years of experience in front-end and back-end technologies.</p></div>
+<div class="instructor-card"><img src="ababab.webp"><h3>Jane Smith</h3><p>Python and AI specialist helping students build real-world projects and career-ready skills.</p></div>
+<div class="instructor-card"><img src="hahaha.webp"><h3>Mike Lee</h3><p>Creative designer teaching UI/UX, Graphic Design, and Digital Art for beginners and professionals.</p></div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+<h2>Pricing Plans</h2>
+<div class="plan-grid">
+<div class="plan-card"><h3>Basic</h3><p>Access to 50+ courses, community support, and basic certification.</p><button>Choose Plan</button></div>
+<div class="plan-card"><h3>Pro</h3><p>Access to all courses, AI assistance, advanced projects, and verified certificates.</p><button>Choose Plan</button></div>
+<div class="plan-card"><h3>Premium</h3><p>All Pro features plus 1-on-1 mentorship, exclusive webinars, and career guidance.</p><button>Choose Plan</button></div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+<h2>What Students Say</h2>
+<div class="test-box"><p>"EasyLearn changed my career! The AI assistant is amazing!"</p></div>
+<div class="test-box"><p>"Very colorful and interactive platform. Love it!"</p></div>
+<div class="test-box"><p>"I learned Web Development and Python in just 3 months!"</p></div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<h2>Contact Us</h2>
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="5" placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+© 2026 EasyLearn | All Rights Reserved
+</footer>
+
+<!-- AI ASSISTANT -->
+<div class="ai-btn" onclick="toggleAI()">🤖</div>
+<div class="ai-box" id="aiBox">
+<div class="ai-header">EasyLearn AI</div>
+<div class="ai-messages" id="aiMessages"></div>
+<div class="ai-input">
+<input id="aiInput" placeholder="Ask something...">
+<button onclick="sendAI()">Send</button>
+</div>
+</div>
+
+<script>
+/* SCROLL ANIMATION */
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".card").forEach(c=>{
+if(c.getBoundingClientRect().top < window.innerHeight-100)c.classList.add("show");
+});
+});
+
+/* AI ASSISTANT */
+function toggleAI(){
+let box=document.getElementById("aiBox");
+box.style.display=box.style.display=="flex"?"none":"flex";
+}
+function sendAI(){
+let input=document.getElementById("aiInput");
+let msg=input.value;
+if(!msg)return;
+let chat=document.getElementById("aiMessages");
+chat.innerHTML+=`<p><b>You:</b> ${msg}</p>`;
+let reply="I can help with courses, career guidance, coding tips, and AI learning.";
+if(msg.toLowerCase().includes("python"))reply="Python is perfect for AI, ML, and automation.";
+if(msg.toLowerCase().includes("web"))reply="Start with HTML, CSS, then JavaScript!";
+chat.innerHTML+=`<p><b>AI:</b> ${reply}</p>`;
+input.value="";
+chat.scrollTop=chat.scrollHeight;
+}
+</script>
+
+</body>
+</html>

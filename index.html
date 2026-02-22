@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Learn</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+background:linear-gradient(-45deg,#667eea,#764ba2,#ff6a88,#ffb86c);
+background-size:400% 400%;
+animation:gradientBG 10s ease infinite;
+color:white;
+scroll-behavior:smooth;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* NAVBAR */
+nav{
+position:fixed;width:100%;top:0;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 50px;
+background:rgba(0,0,0,.3);
+backdrop-filter:blur(15px);
+z-index:1000;
+}
+.logo{
+display:flex;align-items:center;font-size:24px;font-weight:700;
+}
+.logo img{
+width:40px;height:40px;margin-right:10px;border-radius:10px;
+}
+.logo span{color:#ffd369}
+nav ul{display:flex;list-style:none}
+nav ul li{margin:0 15px}
+nav a{color:white;text-decoration:none;font-weight:600}
+nav button{
+padding:8px 20px;border:none;border-radius:25px;
+background:#ffd369;color:black;cursor:pointer;font-weight:600;
+}
+
+/* HERO */
+.hero{
+height:100vh;display:flex;align-items:center;justify-content:center;
+padding:0 20px;text-align:center;flex-direction:column;
+position:relative;
+}
+.hero h1{
+font-size:60px;margin-bottom:20px;
+}
+.hero p{
+font-size:20px;margin-bottom:30px;
+max-width:600px;
+}
+.hero img{
+margin-top:30px;width:80%;max-width:500px;border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+.hero button{
+padding:15px 40px;border:none;border-radius:30px;
+background:#ffd369;color:black;font-weight:700;
+cursor:pointer;box-shadow:0 0 20px rgba(255,211,105,.7);
+transition:.3s;
+}
+.hero button:hover{transform:scale(1.05);}
+
+/* FEATURES */
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;padding:80px 50px;
+}
+.feature-box{
+background:rgba(255,255,255,.15);padding:30px;border-radius:20px;
+text-align:center;backdrop-filter:blur(10px);transition:.4s;
+}
+.feature-box:hover{transform:translateY(-10px);}
+
+/* STATS */
+.stats{
+display:flex;justify-content:space-around;padding:60px 20px;
+background:rgba(0,0,0,.3);
+}
+.stat{text-align:center;}
+.stat h2{font-size:40px;color:#ffd369}
+
+/* COURSES */
+.courses{
+padding:80px 50px;
+}
+.course-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;margin-top:40px;
+}
+.card{
+background:white;color:black;border-radius:20px;overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.3);transition:.4s;opacity:0;transform:translateY(40px);
+}
+.card.show{opacity:1;transform:translateY(0)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card div{padding:20px}
+.card button{
+margin-top:10px;padding:10px 20px;border:none;border-radius:20px;
+background:#667eea;color:white;cursor:pointer;
+}
+
+/* TESTIMONIALS */
+.testimonials{
+padding:80px 50px;background:rgba(0,0,0,.3);
+}
+.test-box{
+background:rgba(255,255,255,.2);padding:30px;border-radius:20px;margin-top:20px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;padding:30px;background:rgba(0,0,0,.4);
+}
+
+/* AI */
+.ai-btn{
+position:fixed;bottom:20px;right:20px;width:65px;height:65px;
+border-radius:50%;background:#ffd369;color:black;
+display:flex;justify-content:center;align-items:center;
+font-size:28px;cursor:pointer;
+}
+.ai-box{
+position:fixed;bottom:100px;right:20px;width:330px;height:420px;
+background:white;color:black;border-radius:20px;display:none;
+flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+.ai-header{
+background:#667eea;color:white;padding:10px;text-align:center;
+border-radius:20px 20px 0 0;
+}
+.ai-messages{flex:1;padding:10px;overflow-y:auto;}
+.ai-input{display:flex;}
+.ai-input input{flex:1;padding:10px;border:none;}
+.ai-input button{background:#667eea;color:white;border:none;padding:10px;}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">
+<img src="logo.jpeg" alt="EasyLearn Logo">
+<span>EasyLearn</span>
+</div>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#courses">Courses</a></li>
+<li><a href="#testimonials">Reviews</a></li>
+</ul>
+<button>Login</button>
+</nav>
+<!-- ABOUT US SECTION -->
+<section class="about" id="about">
+  <h2>About Us</h2>
+  <p>
+    At EasyLearn, we envision a world where education is not limited by geography, time, or financial constraints. Our platform was founded with the core belief that every individual, regardless of age or background, deserves the opportunity to learn, grow, and succeed in a rapidly changing digital world. We understand that traditional education systems often fall short in providing personalized, practical, and flexible learning experiences, which is why EasyLearn was created as a comprehensive online learning ecosystem designed to empower learners in every stage of their journey.
+
+    From the very beginning, our goal has been to make learning engaging, accessible, and highly effective. We offer an extensive range of courses covering web development, programming, artificial intelligence, machine learning, data science, digital design, and much more. Each course is carefully curated and developed by industry professionals who bring real-world experience and insight to every lesson. Our hands-on approach ensures that learners are not only absorbing theoretical knowledge but also building practical skills that they can immediately apply in professional settings.
+
+    What sets EasyLearn apart is our commitment to personalized learning. We recognize that every student has a unique learning style, pace, and set of goals. That’s why we integrate interactive exercises, quizzes, projects, and AI-powered guidance to adapt to individual needs. Our built-in AI assistant is available around the clock to answer questions, provide learning recommendations, and help learners overcome challenges, making the learning process smoother and more efficient.
+
+    Community is also at the heart of EasyLearn. Learning becomes more meaningful when shared, discussed, and applied collaboratively. Our platform encourages students to engage with peers, share ideas, participate in group projects, and provide feedback, fostering a vibrant community of curious and motivated learners. This collaborative environment ensures that students are not just consuming content but are actively participating, innovating, and building confidence in their abilities.
+
+    Over the years, EasyLearn has helped thousands of learners worldwide to achieve their dreams — whether it’s landing their first tech job, advancing in their careers, building startups, or mastering a new skill just for personal growth. Our commitment to quality, innovation, and learner success drives us to constantly improve our platform, update courses with the latest technologies, and provide valuable resources that meet the evolving demands of the digital age.
+
+    At EasyLearn, we believe that learning is a lifelong journey. Our mission goes beyond teaching skills; we aim to inspire curiosity, spark creativity, and instill a mindset of continuous improvement. We celebrate every achievement of our learners, support them in overcoming obstacles, and empower them to reach heights they once thought impossible. By combining cutting-edge technology, expert instruction, and a supportive learning community, EasyLearn is transforming the way people learn and grow, making education not only a pathway to knowledge but a gateway to opportunity, success, and personal fulfillment.
+
+    Join us at EasyLearn and become part of a movement that is shaping the future of education. Here, every lesson matters, every learner is valued, and every skill you gain is a step toward your dreams. Whether you are starting from scratch or looking to elevate your expertise, EasyLearn is here to guide you, inspire you, and equip you for success in the ever-evolving world of technology and creativity.
+  </p>
+</section>
+
+<style>
+/* ABOUT US STYLING */
+.about{
+  padding:80px 50px;
+  background:rgba(255,255,255,0.15);
+  border-radius:20px;
+  margin:50px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+  color:white;
+}
+
+.about h2{
+  font-size:48px;
+  margin-bottom:30px;
+  text-align:center;
+  color:#ffd369;
+}
+
+.about p{
+  font-size:18px;
+  line-height:1.8;
+  max-width:900px;
+  margin:0 auto;
+  text-align:justify;
+}
+</style>
+
+<section class="hero">
+<h1>Learn Smarter, Learn Faster</h1>
+<p>Join thousands of students upgrading skills in Web, Python, AI, and Design with EasyLearn.</p>
+<img src="bababa.jpeg" alt="Learning Banner">
+<button>Start Learning</button>
+</section>
+
+<section class="features">
+<div class="feature-box">
+<h3>🚀 Fast Learning</h3>
+<p>Quick lessons with progress tracking for all courses.</p>
+</div>
+<div class="feature-box">
+<h3>🤖 AI Assistant</h3>
+<p>Ask questions anytime with built-in AI assistant.</p>
+</div>
+<div class="feature-box">
+<h3>📜 Certification</h3>
+<p>Earn certificates after completing courses.</p>
+</div>
+</section>
+
+<section class="stats">
+<div class="stat"><h2>10K+</h2><p>Students</p></div>
+<div class="stat"><h2>120+</h2><p>Courses</p></div>
+<div class="stat"><h2>95%</h2><p>Success Rate</p></div>
+</section>
+
+<section class="courses" id="courses">
+<h2>Popular Courses</h2>
+<div class="course-grid">
+<div class="card"><img src="web.jpeg"><div><h3>Web Development</h3><p>HTML, CSS, JS Full Course</p><button>Enroll</button></div></div>
+<div class="card"><img src="python.jpeg"><div><h3>Python Programming</h3><p>Beginner to Advanced</p><button>Enroll</button></div></div>
+<div class="card"><img src="ai.jpeg"><div><h3>AI & Machine Learning</h3><p>Future Ready Skills</p><button>Enroll</button></div></div>
+</div>
+</section>
+
+<section class="testimonials" id="testimonials">
+<h2>What Students Say</h2>
+<div class="test-box"
+<p>"EasyLearn changed my career! The AI assistant is amazing!"</p>
+</div>
+<div class="test-box">
+<p>"Very colorful and interactive platform. Love it!"</p>
+</div>
+</section>
+
+<footer>
+© 2026 EasyLearn | 
+</footer>
+
+<div class="ai-btn" onclick="toggleAI()">🤖</div>
+<div class="ai-box" id="aiBox">
+<div class="ai-header">EasyLearn AI</div>
+<div class="ai-messages" id="aiMessages"></div>
+<div class="ai-input">
+<input id="aiInput" placeholder="Ask something...">
+<button onclick="sendAI()">Send</button>
+</div>
+</div>
+
+<script>
+/* SCROLL ANIMATION */
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".card").forEach(c=>{
+if(c.getBoundingClientRect().top < window.innerHeight-100)c.classList.add("show");
+});
+});
+
+/* AI ASSISTANT */
+function toggleAI(){
+let box=document.getElementById("aiBox");
+box.style.display=box.style.display=="flex"?"none":"flex";
+}
+function sendAI(){
+let input=document.getElementById("aiInput");
+let msg=input.value;
+if(!msg)return;
+let chat=document.getElementById("aiMessages");
+chat.innerHTML+=`<p><b>You:</b> ${msg}</p>`;
+let reply="I can help with courses, career guidance, coding tips, and AI learning.";
+if(msg.toLowerCase().includes("python"))reply="Python is perfect for AI, ML, and automation.";
+if(msg.toLowerCase().includes("web"))reply="Start with HTML, CSS, then JavaScript!";
+chat.innerHTML+=`<p><b>AI:</b> ${reply}</p>`;
+input.value="";
+chat.scrollTop=chat.scrollHeight;
+}
+</script>
+
+</body>
+</html>
