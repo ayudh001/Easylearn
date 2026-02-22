@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FocusFlow Pro</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">FocusFlow Pro</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#planner">Planner</a>
+        <a href="#">AI Assistant</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Study Smarter, Achieve Faster</h1>
+    <p>Your digital platform to enhance student learning.</p>
+    <a href="#" class="btn">Start Learning</a>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <h2>Platform Features</h2>
+    <div class="feature-container">
+        <div class="card">📚 Organized Notes</div>
+        <div class="card">📊 Progress Tracking</div>
+        <div class="card">🗓 Weekly Planner</div>
+        <div class="card">🤖 AI Study Assistant</div>
+    </div>
+</section>
+
+<!-- Dashboard Section -->
+<section id="dashboard" class="dashboard">
+    <h2>Student Dashboard</h2>
+    <div class="dashboard-container">
+        <div class="dashboard-card">Mathematics</div>
+        <div class="dashboard-card">Science</div>
+        <div class="dashboard-card">English</div>
+        <div class="dashboard-card">Computer Studies</div>
+    </div>
+</section>
+
+<!-- Progress Section -->
+<section class="progress-section">
+    <h2>Your Progress</h2>
+    <p>Mathematics</p>
+    <div class="progress"><div class="progress-bar math"></div></div>
+    <p>Science</p>
+    <div class="progress"><div class="progress-bar science"></div></div>
+    <p>English</p>
+    <div class="progress"><div class="progress-bar english"></div></div>
+</section>
+
+<!-- Weekly Planner -->
+<section id="planner" class="planner">
+    <h2>Weekly Planner</h2>
+    <div class="grid">
+        <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div>
+        <div>Math</div><div>Science</div><div>English</div><div>Computer</div><div>Revision</div>
+    </div>
+</section>
+
+
+
+<footer>
+    <p>© 2026 FocusFlow Pro </p>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Side AI Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ayudh.css">
+</head>
+<body>
+
+<button class="toggle-btn" onclick="toggleChat()">AI Assistant</button>
+
+<div class="chat-container" id="chatBox">
+    <div class="chat-header">
+        AI Assistant
+    </div>
+
+    <div class="chat-messages" id="messages">
+        <div class="message bot">
+            Hello 👋 How can I help you?
+        </div>
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Ask something...">
+        <button onclick="sendMessage()">Search</button>
+    </div>
+</div>
+
+<script>
+function toggleChat() {
+    document.getElementById("chatBox").classList.toggle("active");
+}
+
+function sendMessage() {
+    let input = document.getElementById("userInput");
+    let messageText = input.value.trim();
+    if (messageText === "") return;
+
+    let messages = document.getElementById("messages");
+
+    // User Message
+    let userMessage = document.createElement("div");
+    userMessage.className = "message user";
+    userMessage.innerText = messageText;
+    messages.appendChild(userMessage);
+
+    // Demo Bot Reply
+    let botMessage = document.createElement("div");
+    botMessage.className = "message bot";
+    botMessage.innerText = "Searching for: " + messageText;
+    messages.appendChild(botMessage);
+
+    input.value = "";
+    messages.scrollTop = messages.scrollHeight;
+}
+</script>
+
+</body>
+</html>
+<button class="toggle-btn" onclick="toggleChat()">AI Assistant</button>
+
+<div class="chat-container" id="chatBox">
+    <div class="chat-header">
+        AI Assistant
+        <button class="close-btn" onclick="closeChat()">✖</button>
+    </div>
+
+    <div class="chat-messages" id="messages">
+        <div class="message bot">
+            Hello 👋 How can I help you?
+        </div>
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Ask something...">
+        <button onclick="sendMessage()">Search</button>
+    </div>
+</div>
+
+<script>
+function toggleChat() {
+    document.getElementById("chatBox").classList.toggle("active");
+}
+
+// New close function
+function closeChat() {
+    document.getElementById("chatBox").classList.remove("active");
+}
+
+function sendMessage() {
+    let input = document.getElementById("userInput");
+    let messageText = input.value.trim();
+    if (messageText === "") return;
+
+    let messages = document.getElementById("messages");
+
+    // User Message
+    let userMessage = document.createElement("div");
+    userMessage.className = "message user";
+    userMessage.innerText = messageText;
+    messages.appendChild(userMessage);
+
+    // Demo Bot Reply
+    let botMessage = document.createElement("div");
+    botMessage.className = "message bot";
+    botMessage.innerText = "Searching for: " + messageText;
+    messages.appendChild(botMessage);
+
+    input.value = "";
+    messages.scrollTop = messages.scrollHeight;
+}
+</script>
